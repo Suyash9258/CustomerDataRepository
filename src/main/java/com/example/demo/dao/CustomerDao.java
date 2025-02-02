@@ -33,9 +33,10 @@ public class CustomerDao {
 
 	public Customer fetchDbdetails(long custId) {
 		Optional<Customer> cust = custRepository.findById(custId);
-		System.out.println("Customer Details --> " + cust);
+		log.info("Customer Details retreived for custid--> " + custId+ "---> "+cust);
 
 		return cust.orElseThrow(() ->
+
 				new CustomerNotFoundException("No customer found with ID: " + custId)
 		);
 	}
